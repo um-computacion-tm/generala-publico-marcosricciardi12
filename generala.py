@@ -21,14 +21,6 @@ def buscar_repetido(dados, repetidos, cantidad_repetidos, estricto=False):
             encontre = True
     return encontre
 
-def buscar_repetido_full(dados, repetidos, cantidad_repetidos, estricto=False):
-    encontre = False
-    for repetido in repetidos:
-        if repetido == cantidad_repetidos:
-            encontre = True
-    return encontre
-
-
 def calcular_puntos(numero_lanzamiento, dados, juego):
     puntos = 0
     if juego == "escalera":
@@ -49,7 +41,7 @@ def calcular_puntos(numero_lanzamiento, dados, juego):
                 puntos += 5
     elif juego == "full":
         repetidos = calcular_repetidos(dados)
-        if buscar_repetido_full(dados, repetidos, 3) and buscar_repetido_full(dados, repetidos, 2):
+        if 3 in repetidos and 2 in repetidos:
             puntos = 30
             if numero_lanzamiento == 1:
                 puntos += 5
